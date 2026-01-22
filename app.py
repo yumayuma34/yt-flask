@@ -19,7 +19,7 @@ def geturl():
     try:
         result = subprocess.check_output(
             ["yt-dlp", "--get-url", "-f", "18", input_url],
-            stderr=subprocess.DEVNULL,  # ← ここがポイント
+            stderr=subprocess.DEVNULL,
             text=True
         )
         direct_url = result.strip()
@@ -30,3 +30,4 @@ def geturl():
 
 if __name__ == "__main__":
     app.run(port=5000, debug=True)
+
