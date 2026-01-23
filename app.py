@@ -18,16 +18,16 @@ def geturl():
 
     try:
         result = subprocess.check_output(
-            ["yt-dlp", "--get-url", "-f", "18", input_url],
-            stderr=subprocess.DEVNULL,
+            ["yt-dlp", "--no-warnings", "--get-url", "-f", "18", input_url],
+            stderr=subprocess.STDOUT,
             text=True
         )
+
         direct_url = result.strip()
-        return f"取得したURL:<br><a href='{direct_url}'>{direct_url}</a>"
+        return f"取得したURL<br><a href='{direct_url}'>{direct_url}</a>"
 
     except subprocess.CalledProcessError as e:
-        return f"エラー:<br><pre>{e.output}</pre>"
+        return f"エラー<br><pre>{e.stdout}</pre>"
 
 if __name__ == "__main__":
     app.run(port=5000, debug=True)
-
