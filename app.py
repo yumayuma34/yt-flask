@@ -24,7 +24,7 @@ def geturl():
         )
 
         direct_url = result.strip()
-        return f"取得したURL<br><a href='{direct_url}'>{direct_url}</a>"
+        return f"取得したURL<br><a href='{direct_url}' target='_blank'>{direct_url}</a>"
 
     except subprocess.CalledProcessError as e:
         return f"エラー<br><pre>{e.stdout}</pre>"
